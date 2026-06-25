@@ -136,7 +136,7 @@ screenshots/
 
 ### Home
 
-![Home](screenshots/Story.png)
+![Story](screenshots/Story.png)
 
 ## 🏗️ Architecture
 
