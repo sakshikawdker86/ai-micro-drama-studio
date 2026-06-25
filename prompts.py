@@ -10,6 +10,7 @@ Language: {language}
 Target Audience: {audience}
 
 IMPORTANT:
+Return the response in Markdown format only.
 Return the output using EXACTLY these headings.
 Do not rename them.
 Do not skip any section.
@@ -23,6 +24,9 @@ Do not skip any section.
 - Role:
 
 ## Story
+
+Write the story in exactly 5 scenes.
+
 Scene 1
 
 Scene 2

@@ -1,5 +1,5 @@
 import streamlit as st
-
+from parser import parse_sections
 from prompts import create_story_prompt
 from gemini_service import generate_story
 
@@ -49,6 +49,27 @@ if generate:
 
     with st.spinner("🎬 Generating AI Micro Drama..."):
         story = generate_story(prompt)
+        sections = parse_sections(story)
+        if "Title" in sections:
+            st.header(sections["Title"].strip())
+
+        with st.expander("👥 Characters", expanded=True):
+            st.markdown(sections.get("Characters", ""))
+
+        with st.expander("🎬 Story", expanded=True):
+             st.markdown(sections.get("Story", ""))
+
+        with st.expander("🎨 Thumbnail Prompt"):
+            st.code(sections.get("Thumbnail Prompt", ""), language="text")
+
+        with st.expander("🎙 Voiceover Script"):
+            st.markdown(sections.get("Voiceover Script", ""))
+
+        with st.expander("📱 Instagram Caption"):
+           st.markdown(sections.get("Instagram Caption", ""))
+  
+        with st.expander("🏷️ Hashtags"):
+          st.markdown(sections.get("Hashtags", ""))
 
     st.success("✅ AI Content Generated Successfully!")
 
