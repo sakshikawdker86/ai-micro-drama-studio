@@ -39,6 +39,7 @@ with col2:
 generate = st.button("✨ Generate Story")
 
 if generate:
+
     prompt = create_story_prompt(
         genre,
         language,
@@ -46,6 +47,9 @@ if generate:
         duration
     )
 
-    story = generate_story(prompt)
+    with st.spinner("🎬 Generating AI Micro Drama..."):
+        story = generate_story(prompt)
+
+    st.success("✅ AI Content Generated Successfully!")
 
     st.markdown(story)

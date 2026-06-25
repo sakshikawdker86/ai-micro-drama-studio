@@ -6,12 +6,13 @@ You are a professional micro-drama writer.
 Generate a {duration} micro drama.
 
 Genre: {genre}
-
 Language: {language}
-
 Target Audience: {audience}
 
-Return:
+IMPORTANT:
+Return the output using EXACTLY these headings.
+Do not rename them.
+Do not skip any section.
 
 ## Title
 
@@ -22,7 +23,6 @@ Return:
 - Role:
 
 ## Story
-
 Scene 1
 
 Scene 2
@@ -30,11 +30,10 @@ Scene 2
 Scene 3
 
 Ending
+
 ## Thumbnail Prompt
 
-Write one highly detailed cinematic AI image prompt.
-
-The prompt should include:
+Generate ONE highly detailed cinematic AI image prompt including:
 - Character appearance
 - Emotion
 - Lighting
@@ -46,15 +45,13 @@ The prompt should include:
 
 ## Voiceover Script
 
-Write a cinematic voiceover narration for the story.
+Write an emotional narration (80–120 words) suitable for a 1-minute short video.
 
-Requirements:
-- Emotional tone
-- 80–120 words
-- Suitable for a 1-minute short video
-- End with a hook that keeps viewers engaged.
+## Instagram Caption
 
+Write a catchy Instagram caption in maximum 2 lines with 2–3 emojis.
 
+## Hashtags
 
+Generate exactly 10 hashtags.
 """
-
