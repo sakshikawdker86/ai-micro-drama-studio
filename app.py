@@ -12,7 +12,12 @@ if "history" not in st.session_state:
     st.session_state.history = []
 
 st.title("🎬 AI Micro Drama Studio")
+
+
 st.sidebar.title("📚 Story History")
+st.sidebar.markdown("---")
+st.sidebar.caption("🚀 AI Micro Drama Studio")
+st.sidebar.caption("Built with Python + Streamlit + Gemini")
 
 if len(st.session_state.history) == 0:
     st.sidebar.info("No stories generated yet.")
@@ -44,6 +49,15 @@ with col2:
         "Episode Length",
         ["30 Seconds", "1 Minute", "2 Minutes"]
     )
+
+st.caption("Generate complete AI-powered short drama content in seconds.")
+col1, col2, col3 = st.columns(3)
+
+col1.metric("Stories Generated", len(st.session_state.history))
+
+col2.metric("Current Genre", genre)
+
+col3.metric("Language", language)
 
 generate = st.button("✨ Generate Story")
 
