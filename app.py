@@ -1,16 +1,11 @@
-import os
-from dotenv import load_dotenv
-import google.generativeai as genai
+import streamlit as st
 
-load_dotenv()
+st.set_page_config(
+    page_title="AI Micro Drama Studio",
+    page_icon="🎬",
+    layout="wide"
+)
 
-api_key = os.getenv("GEMINI_API_KEY")
-print(api_key[:8])
+st.title("🎬 AI Micro Drama Studio")
 
-genai.configure(api_key=api_key)
-
-model = genai.GenerativeModel("gemini-2.5-flash")
-
-response = model.generate_content("Say hello")
-
-print(response.text)
+st.write("Generate AI-powered micro drama scripts using Gemini.")
