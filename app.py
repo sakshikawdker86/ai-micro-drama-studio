@@ -8,8 +8,17 @@ st.set_page_config(
     page_icon="🎬",
     layout="wide"
 )
+if "history" not in st.session_state:
+    st.session_state.history = []
 
 st.title("🎬 AI Micro Drama Studio")
+st.sidebar.title("📚 Story History")
+
+if len(st.session_state.history) == 0:
+    st.sidebar.info("No stories generated yet.")
+else:
+    for index, item in enumerate(st.session_state.history, start=1):
+        st.sidebar.write(f"{index}. {item['genre']}")
 st.write("Generate AI-powered micro drama scripts using Gemini.")
 
 col1, col2 = st.columns(2)
@@ -49,6 +58,10 @@ if generate:
 
     with st.spinner("🎬 Generating AI Micro Drama..."):
         story = generate_story(prompt)
+        st.session_state.history.append({
+           "genre": genre,
+           "story": story
+       })
         sections = parse_sections(story)
         if "Title" in sections:
             st.header(sections["Title"].strip())
@@ -69,7 +82,13 @@ if generate:
            st.markdown(sections.get("Instagram Caption", ""))
   
         with st.expander("🏷️ Hashtags"):
-          st.markdown(sections.get("Hashtags", ""))
+            st.download_button(
+                label="📥 Download Story",
+                data=story,
+                file_name="micro_drama_story.md",
+                mime="text/markdown"
+            )
+            st.markdown(sections.get("Hashtags", ""))
 
     st.success("✅ AI Content Generated Successfully!")
 
