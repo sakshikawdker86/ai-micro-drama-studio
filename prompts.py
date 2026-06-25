@@ -13,9 +13,15 @@ Target Audience: {audience}
 
 Return:
 
-Title
+## Title
 
-Characters
+## Characters
+- Name:
+- Age:
+- Personality:
+- Role:
+
+## Story
 
 Scene 1
 
